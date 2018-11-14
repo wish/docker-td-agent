@@ -64,7 +64,7 @@ RUN buildDeps="sudo make gcc g++ libc-dev ruby-dev" \
         fluent-plugin-td \
         fluent-plugin-td-monitoring \
         fluent-plugin-webhdfs \
-        fluent-plugin-prometheus \
+ && gem install fluent-plugin-prometheus -v 1.0.1 \
  && sudo gem sources --clear-all \
  && SUDO_FORCE_REMOVE=yes \
     apt-get purge -y --auto-remove \
