@@ -18,6 +18,7 @@ RUN apt-get update \
  && apt-get install -y --no-install-recommends \
             ca-certificates \
             ruby \
+            git \
  && buildDeps=" \
       make gcc g++ libc-dev \
       ruby-dev \
@@ -62,7 +63,8 @@ RUN buildDeps="sudo make gcc g++ libc-dev ruby-dev" \
         fluent-plugin-td \
         fluent-plugin-td-monitoring \
         fluent-plugin-webhdfs \
- && gem install fluent-plugin-prometheus -v 1.2.1 \
+        specific_install \
+ && sudo gem specific_install https://github.com/fluent/fluent-plugin-prometheus.git \
  && sudo gem sources --clear-all \
  && SUDO_FORCE_REMOVE=yes \
     apt-get purge -y --auto-remove \
